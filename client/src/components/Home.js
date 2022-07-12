@@ -1,8 +1,10 @@
 import { useState, useEffect} from "react"
 import Speech from "./Speech"
+import NewPost from "./NewPost"
 
 function Home () {  
     const [story, setStory]=useState([])
+    const [ourText, setOurText] = useState("")
 
     function handleClick(){
         fetch("https://shortstories-api.herokuapp.com/")
@@ -32,6 +34,7 @@ function Home () {
             <button onClick={handleClick} >Get A Story</button>
             {story.story}
             <Speech story={story }></Speech>
+            <NewPost></NewPost>
         </div>
 
     )
